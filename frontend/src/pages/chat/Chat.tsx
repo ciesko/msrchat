@@ -697,12 +697,17 @@ const Chat = ({ embedDisplay }: { embedDisplay: boolean }) => {
                                         <Button
                                             appearance="transparent"
                                             size="large"
-                                            icon={appStateContext?.state.audioMuted  ? <SpeakerMuteRegular /> : <Speaker224Regular />}
-                                            aria-label={appStateContext?.state.audioMuted  ? "Unmute" : "Mute"}
+                                            icon={appStateContext?.state.audioMuted ? <SpeakerMuteRegular /> : <Speaker224Regular />}
+                                            aria-label={appStateContext?.state.audioMuted ? "Unmute" : "Mute"}
                                             tabIndex={0}
                                             onClick={toggleAudioMute}
-                                            onKeyDown={e => e.key === "Enter" || e.key === " " ? toggleAudioMute() : null}
-                                            title={appStateContext?.state.audioMuted  ? "Unmute" : "Mute"}
+                                            onKeyDown={e => {
+                                                if (e.key === "Enter" || e.key === " ") {
+                                                    e.preventDefault();
+                                                    toggleAudioMute();
+                                                }
+                                            }}
+                                            title={appStateContext?.state.audioMuted ? "Unmute" : "Mute"}
                                         />
                                     )
                                 }

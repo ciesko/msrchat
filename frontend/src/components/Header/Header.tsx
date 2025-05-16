@@ -48,15 +48,12 @@ export const Header: React.FunctionComponent<IHeaderProps> = (props: React.Props
                 }
                 {
                     appStateContext?.state.frontendSettings?.submit_feedback_url &&
-                    <Button
-                        appearance="primary"
-                        as="a"
+                    <Link
                         title="Submit feedback"
                         href={appStateContext?.state.frontendSettings?.submit_feedback_url}
-                        icon={isSmallScreen ? <PersonFeedback16Regular /> : undefined}
                     >
-                        {isSmallScreen ? '' : 'Submit feedback'}
-                    </Button>
+                        {isSmallScreen ? <PersonFeedback16Regular /> : 'Submit feedback'}
+                    </Link>
                 }
             </div>
         </div>
