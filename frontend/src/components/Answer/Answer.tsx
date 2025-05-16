@@ -248,6 +248,11 @@ export const Answer = ({
                                         appearance="transparent"
                                         onClick={handleChevronClick}
                                         icon={chevronIsExpanded ? <ChevronDown24Regular /> : <ChevronRight24Regular />}
+                                        onKeyDown={e => {
+                                                if (e.key === "Enter" || e.key === " ") {
+                                                    e.preventDefault();
+                                                }
+                                            }}
                                     />
                                 </div>
                             </div>
