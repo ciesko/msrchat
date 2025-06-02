@@ -615,12 +615,12 @@ const Chat = ({ embedDisplay }: { embedDisplay: boolean }) => {
                                 />
                             </div>
                         ) : (
-                            <div className={styles.chatMessageStream} role="log">
+                            <div className={styles.chatMessageStream} role="log" aria-label="Messages" >
                                 {messages.map((answer, index) => (
-                                    <div key={`answer-${index}`}>
+                                    <div key={`answer-${index}`} aria-label="Question and answer">
                                         {
                                             answer.role === "user" ? (
-                                                <div className={styles.questionDisplayRow}>
+                                                <div className={styles.questionDisplayRow} aria-label="Question">
                                                     <QuestionDisplay
                                                         content={answer.content}
                                                     />

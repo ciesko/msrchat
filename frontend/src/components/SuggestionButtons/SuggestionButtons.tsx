@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { SuggestionButtonStyles } from './SuggestionButtonStyles';
-import { Button, Subtitle2 } from '@fluentui/react-components';
+import { Button, Title3 } from '@fluentui/react-components';
 import { AppStateContext } from '../../state/AppProvider';
 import { useContext } from 'react';
 
@@ -14,7 +14,7 @@ export const SuggestionButtons: React.FunctionComponent<ISuggestionButtonsProps>
 
     return (
         <div className={styles.container}>
-            <span className={styles.prompt}><i>{appStateContext?.state.frontendSettings?.frontpage_question_heading}</i></span>
+            <Title3 className={styles.prompt}><i>{appStateContext?.state.frontendSettings?.frontpage_question_heading}</i></Title3>
             <div className={appStateContext?.state.frontendSettings?.frontpage_vertical_questions ? styles.questionsContainerVertical : styles.questionsContainerHorizontal}>
                 {
                     appStateContext?.state.frontendSettings?.frontpage_questions?.map((questionText, index) => {
