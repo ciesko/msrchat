@@ -246,6 +246,7 @@ export const Answer = ({
                                     </Text>
                                     <Button
                                         appearance="transparent"
+                                        aria-label="Toggle references"
                                         onClick={handleChevronClick}
                                         icon={chevronIsExpanded ? <ChevronDown24Regular /> : <ChevronRight24Regular />}
                                         onKeyDown={e => {

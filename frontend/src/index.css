@@ -19,3 +19,7 @@ html {
 #root {
     height: 100%;
 }
+
+[data-tabster-dummy] {
+  display: none !important;
+}

@@ -15,13 +15,13 @@ export const ChatStyles = makeStyles({
         boxShadow: tokens.shadow8,
         ...shorthands.borderRadius(tokens.borderRadiusXLarge),
         overflowY: 'auto',
-        height: 'calc(100vh - 90px)',
+        minHeight: 'calc(100vh - 90px)',
         ...shorthands.padding('30px'),
         boxSizing: 'border-box',
         backgroundColor: tokens.colorNeutralBackground4,
         '@media (max-width: 400px)': {
             ...shorthands.padding('15px'),
-            height: 'calc(100vh - 130px)',
+            minHeight: 'calc(100vh - 130px)',
         },
     },
 
