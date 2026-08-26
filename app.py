@@ -499,8 +499,17 @@ def get_frontend_settings():
     
 @app.route("/speech/issueToken", methods=["GET"])
 async def speech_issue_token():
+    if not SPEECH_ENABLED:
+        return jsonify({"error": "Azure Speech is not enabled"}), 404
+
     if not AZURE_SPEECH_REGION:
         return jsonify({"error": "Azure Speech region is not configured"}), 404
+
+    ## require an authenticated (EasyAuth) user so anonymous callers can't mint
+    ## Managed-Identity Cognitive Services tokens directly against this endpoint
+    authenticated_user = get_authenticated_user_details(request_headers=request.headers)
+    if not authenticated_user.get("user_principal_id"):
+        return jsonify({"error": "Unauthorized"}), 401
 
     try:
         credential = DefaultAzureCredential()
